@@ -117,7 +117,7 @@ RUN apk-install -t .build-deps \
   && cd /cuckoo \
   && export PIP_NO_CACHE_DIR=off \
   && export PIP_DISABLE_PIP_VERSION_CHECK=on \
-  && pip install --upgrade pip wheel pyvmomi \
+  && pip install --upgrade pip wheel pyvmomi httpreplay \
   && echo "Install mitmproxy..." \
   && LDFLAGS=-L/lib pip install mitmproxy \
   && pip install -r requirements.txt \
