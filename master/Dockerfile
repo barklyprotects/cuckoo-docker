@@ -112,7 +112,7 @@ RUN apk-install -t .build-deps \
   && python setup.py build \
   && python setup.py install \
   && echo "Cloning Cuckoo Sandbox..." \
-  && git clone --recursive https://github.com/cuckoosandbox/cuckoo.git /cuckoo \
+  && git clone --recursive --branch master https://github.com/barklyprotects/cuckoo.git /cuckoo \
   && adduser -DH cuckoo \
   && cd /cuckoo \
   && export PIP_NO_CACHE_DIR=off \
