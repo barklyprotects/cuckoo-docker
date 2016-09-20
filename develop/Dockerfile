@@ -140,9 +140,7 @@ COPY entrypoint.sh /entrypoint.sh
 VOLUME ["/malware"]
 VOLUME ["/rules"]
 VOLUME ["/data"]
-VOLUME ["/cuckoo/data/monitor"]
 VOLUME ["/plugins"]
-VOLUME ["/cuckoo/conf"]
 
 EXPOSE 1337 31337
 
