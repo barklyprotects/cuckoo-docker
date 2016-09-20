@@ -95,7 +95,10 @@ RUN apk-install -t .build-deps \
                    autoconf \
                    libtool \
                    py-pip \
-                   git \
+                   git  \
+  && pip install awscli boto3 \
+  && mkdir /root/.aws  \
+  && aws configure set s3.signature_version s3v4 \
   && set -x \
   && echo "Install snappy" \
   && git clone https://github.com/google/snappy.git /snappy \
