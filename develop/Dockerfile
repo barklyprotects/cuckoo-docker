@@ -86,7 +86,6 @@ RUN apk-install -t .build-deps \
                    python-dev \
                    libffi-dev \
                    build-base \
-                   libstdc++ \
                    zlib-dev \
                    libc-dev \
                    jpeg-dev \
@@ -101,6 +100,7 @@ RUN apk-install -t .build-deps \
   && aws configure set s3.signature_version s3v4 \
   && set -x \
   && echo "Install snappy" \
+  && apk --update add snappy \
   && git clone https://github.com/google/snappy.git /snappy \
   && cd /snappy \
   && ./autogen.sh \
