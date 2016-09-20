@@ -97,6 +97,14 @@ RUN apk-install -t .build-deps \
                    py-pip \
                    git \
   && set -x \
+  && echo "Install snappy" \
+  && git clone https://github.com/google/snappy.git /snappy \
+  && cd /snappy \
+  && ./autogen.sh \
+  && ./configure && make install \
+  && export CPPFLAGS="-I/usr/local/include" && export CFLAGS="-I/usr/local/include" \
+  && export LDFLAGS="-L/usr/local/lib" \
+  && pip install python-snappy \
   && echo "Install ssdeep..." \
   && wget -O /tmp/$SSDEEP.tar.gz https://downloads.sourceforge.net/project/ssdeep/$SSDEEP/$SSDEEP.tar.gz \
   && cd /tmp \
