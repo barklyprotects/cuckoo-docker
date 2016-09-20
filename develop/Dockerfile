@@ -136,7 +136,7 @@ RUN apk-install -t .build-deps \
 
 COPY entrypoint.sh /entrypoint.sh
 
-
+#data volumes
 VOLUME ["/malware"]
 VOLUME ["/rules"]
 VOLUME ["/data"]
