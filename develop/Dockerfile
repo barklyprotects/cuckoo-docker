@@ -96,6 +96,7 @@ RUN apk-install -t .build-deps \
                    py-pip \
                    git  \
   && pip install awscli boto3 \
+  && pip install pymongo --upgrade \
   && mkdir /root/.aws  \
   && aws configure set s3.signature_version s3v4 \
   && set -x \
