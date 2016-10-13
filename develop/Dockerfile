@@ -140,7 +140,9 @@ RUN apk-install -t .build-deps \
 
 COPY entrypoint.sh /entrypoint.sh
 
-RUN mkdir -p /uploads/cuckoo-tmp && chown -R cuckoo:cuckoo /uploads
+RUN mkdir -p /uploads/cuckoo-tmp && \
+    chown -R cuckoo:cuckoo /uploads && \
+    chown -R cuckoo:cuckoo /cuckoo
 
 #data volumes
 VOLUME ["/malware"]
