@@ -132,6 +132,8 @@ RUN apk-install -t .build-deps \
   && pip install --upgrade pip wheel pyvmomi httpreplay \
   && echo "Install mitmproxy..." \
   && LDFLAGS=-L/lib pip install mitmproxy \
+  && echo "Install m2crypto..." \
+  && pip install m2crypto \
   && pip install -r requirements.txt \
   && python utils/community.py -waf \
   && echo "Clean up unnecessary files..." \
