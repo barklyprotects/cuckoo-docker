@@ -59,6 +59,14 @@ elif [ "$1" = 'process' -a "$(id -u)" = '0' ]; then
 
 	set -- gosu cuckoo /sbin/tini -- python process.py "$@"
 
+elif [ "$1" = 'process2' -a "$(id -u)" = '0' ]; then
+	shift
+	# Change the ownership of /cuckoo to cuckoo
+	chown cuckoo:cuckoo /cuckoo
+	cd /cuckoo/utils
+
+	set -- gosu cuckoo /sbin/tini -- python process2.py "$@"
+
 elif [ "$1" = 'api' -a "$(id -u)" = '0' ]; then
 
 	# Change the ownership of /cuckoo to cuckoo
