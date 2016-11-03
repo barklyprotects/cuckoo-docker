@@ -134,7 +134,7 @@ RUN apk-install -t .build-deps \
   && LDFLAGS=-L/lib pip install mitmproxy \
   && echo "Install m2crypto..." \
   && pip install m2crypto \
-  && pip install -r requirements.txt \
+  && LIBRARY_PATH=/lib:/usr/lib /bin/sh -c "pip install -r requirements.txt" \
   && python utils/community.py -waf \
   && echo "Clean up unnecessary files..." \
   && rm -rf /tmp/* \
